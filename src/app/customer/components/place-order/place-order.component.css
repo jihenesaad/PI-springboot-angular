@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+mat-card {
+    max-width: 400px;
+    width: 100%;
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+mat-card-content {
+    padding: 16px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.order-button, .close-button {
+    min-width: 120px;
+}

@@ -1,0 +1,56 @@
+.bootstrap-wrapper {
+    background-color: #f0f0f0; /* Couleur de fond */
+    padding: 20px; /* Espacement autour du contenu */
+  }
+  
+  .container {
+    margin-top: 50px; /* Marge en haut du conteneur */
+  }
+  
+  .mat-card {
+    background-color: #ffffff; /* Couleur de fond de la carte */
+    padding: 20px; /* Espacement à l'intérieur de la carte */
+  }
+  
+  .container.text-center {
+    margin-bottom: 20px; /* Marge en bas du conteneur centré */
+  }
+  
+  img {
+    max-width: 100%; /* Largeur maximale de l'image */
+  }
+  
+  h1 {
+    color: #333333; /* Couleur du titre */
+    font-size: 24px; /* Taille de police du titre */
+    margin-top: 20px; /* Marge en haut du titre */
+    margin-bottom: 20px; /* Marge en bas du titre */
+  }
+  
+  .full-width {
+    width: 100%; /* Largeur de 100% pour le formulaire */
+  }
+  
+  .custom-checkbox {
+    margin-top: 20px; /* Marge en haut de la case à cocher personnalisée */
+  }
+  
+  button.mat-raised-button {
+    margin-top: 20px; /* Marge en haut des boutons */
+    width: 100px; /* Largeur des boutons */
+  }
+  
+  .m120 {
+    margin-left: 20px; /* Marge à gauche du bouton */
+    width: 100px; /* Largeur des boutons */
+  }
+  
+  /* Couleurs des boutons */
+  button.mat-raised-button[color="primary"] {
+    background-color: #007bff; /* Couleur du bouton principal */
+  }
+  
+  button.mat-raised-button[color="accent"] {
+    background-color: #28a745; /* Couleur du bouton d'accent */
+  }
+  

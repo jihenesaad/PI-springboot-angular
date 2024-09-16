@@ -1,0 +1,59 @@
+
+
+  
+    <div class="abonnement-list">
+
+      <mat-card class="abonnement-card" *ngFor="let abonnement of abonnements">
+         <div class="abonnement-image">
+           <img [src]="abonnement.processedImg" alt="abonnement-image">
+         </div>
+         <div class="abonnement-details">
+           <h2 class="abonnement-name">{{abonnement.name}}</h2>
+           <h2 class="abonnement-description">{{abonnement.decription}}</h2>
+   
+           <mat-divider></mat-divider>
+           <div class="abonnement-info">
+             <div class="info-row">
+               <span class="info-label"> Price :</span>
+               <span class="info-value">${{abonnement.price}}</span>
+             </div>
+             <div class="info-row">
+               <span class="info-label"> Category :</span>
+               <span class="info-value">{{abonnement.categoryId}}</span>
+             </div>
+ 
+         <!--   <div class="info-row">
+               <span class="info-label"> Description :</span>
+               <span class="info-value">{{abonnement.description}}</span>
+             </div>--> 
+           </div>
+ 
+           <mat-divider></mat-divider>
+   <div class="actions">
+     <button mat-raised-button color="primary" class="update-button"
+     [routerLink]="'/admin/faq/' + abonnement.id">FAQ</button>
+ 
+     <button mat-raised-button color="accent" class="update-button"
+     [routerLink]="'/admin/abonnement/' + abonnement.id">Update</button>
+ 
+     <button mat-raised-button color="warn" class="delete-button" (click)="deleteAbonnement(abonnement.id)" >
+         Delete
+       </button>
+ </div>
+         </div>
+       </mat-card>
+     </div>
+     
+ <form [formGroup]="searchAbonnementForm" class="search-form" (submit)="submitForm()">
+   <mat-form-field appearance="outline" class="search-input">
+     <mat-label>Enter keyword to search </mat-label>
+     <input matInput formControlName="title">
+ 
+     <button mat-button matSuffix color="primary" [disabled]="searchAbonnementForm.invalid">
+     
+       <mat-icon>search</mat-icon>
+     </button>
+   </mat-form-field>
+   </form>
+   
+   

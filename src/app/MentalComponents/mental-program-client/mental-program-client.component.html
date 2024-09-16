@@ -1,0 +1,108 @@
+<div class="background-video">
+    <!-- Video -->
+    <video autoplay muted loop id="bg-video">
+      <source src="/assets/vin.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  
+    <!-- Content -->
+    <app-nav-bar-front></app-nav-bar-front>
+    <button class="start-button" (click)="openPopup()" data-toggle="modal" data-target="#myModal">Start Your Meditation</button>
+
+    <div class="category-selector">
+        <select [(ngModel)]="selectedCategory" (change)="onSelectCategory()" class="custom-select">
+          <option value="" disabled selected hidden>Choose Plan</option>
+          <option value="beginner">Beginner Plan</option>
+          <option value="intermediate">Intermediate Plan</option>
+          <option value="advanced">Advanced Plan</option>
+        </select>
+      </div>
+
+   
+
+
+    <div class="container">
+        <div class="cards">
+          <div class="card" *ngFor="let mentalProgram of mentalPrograms">
+            <img class="card-image" [src]="getImageUrl(mentalProgram.urlImage)" alt="Mental Program Image">
+            <div class="card-details">
+              <h3 class="description">{{ mentalProgram.description }}</h3><br>
+              <p class="duration">Duration: {{ mentalProgram.duration }} Seconds</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="progress" (click)="openProgressModal()">Progress</button>
+   
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                <ng-container *ngIf="!showTakeBreakMessage && !showGetReadyMessage && !showDoneMessage">Exercise {{ currentCardIndex + 1 }}</ng-container>
+                <ng-container *ngIf="showTakeBreakMessage">&nbsp;Take a Break</ng-container>
+                <ng-container *ngIf="showGetReadyMessage">&nbsp;Get Ready</ng-container>
+                <ng-container *ngIf="showDoneMessage">&nbsp;Done</ng-container>
+              </h5>
+            </div>
+            
+            <div class="modal-body">
+              <!-- Contenu de la modal ici -->
+              <audio id="timerSound" src="/assets/Waves.mp3" preload="auto"></audio>
+              <ng-container *ngIf="!showTakeBreakMessage">
+                <!-- Afficher le contenu de l'exercice ici -->
+                <div class="get-ready-message blink-animation" *ngIf="showGetReadyMessage">Get Ready<br>and<br>Take a breathe</div>
+                <!-- Afficher l'image de l'exercice et le temps restant -->
+                <img class="modal-image" [src]="currentCard && currentCard.urlImage ? getImageUrl(currentCard.urlImage) : ''" alt="Mental Program Image" width="350px" height="250px" *ngIf="!showGetReadyMessage && !showDoneMessage">
+                <div class="modal-details" *ngIf="!showGetReadyMessage && !showDoneMessage">
+                  <p class="timer">Rest: {{ currentCardDurationFormatted }} Seconds</p>
+                </div>
+                <!-- Afficher le message "Done" après le dernier exercice -->
+                <div class="get-ready-message blink-animation" *ngIf="showDoneMessage">Done</div>
+              </ng-container>
+              <ng-container *ngIf="showTakeBreakMessage">
+                <!-- Afficher le message "Take a break" ici -->
+                <div class="get-ready-message blink-animation">Take a break<br>and<br>Drink water</div>
+              </ng-container>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closePopup()" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="progressModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="progressModalLabel">Progress</h5>
+            </div>
+            <div class="modal-body">
+              <svg width="200" height="200">
+                <!-- Cercle gris représentant le progrès total -->
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#f3f3f3" stroke-width="16"></circle>
+                <!-- Cercle coloré représentant le progrès actuel -->
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#00FFFF" stroke-width="16" [attr.stroke-dasharray]="calculateDashArray()" [attr.stroke-dashoffset]="calculateDashOffset()"></circle>
+                <!-- Texte affichant le pourcentage de progrès -->
+                <text x="100" y="105" text-anchor="middle" alignment-baseline="middle" fill="#000000" font-size="28">{{ progressPercentage }}%</text>
+              </svg>
+              <p *ngIf="progressPercentage === 0">Start now!</p>
+              <p *ngIf="progressPercentage < 100 && progressPercentage > 10 ">Keep Going!</p>
+              <p *ngIf="progressPercentage === 100">Great! You've completed the task!<br>Now retake the quiz.</p>
+              <button *ngIf="progressPercentage === 100" type="button" class="btn btn-primary" [routerLink]="['/quiz-client']">Retake</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closeProgressModal()" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+  
+  
+    <app-footer-front></app-footer-front>
+  </div>
+  

@@ -1,0 +1,39 @@
+<app-nav-bar-front></app-nav-bar-front>
+<div class="background-image">
+  <div class="content">
+    <div class="notification-bar">
+      <button class="notification-button" (click)="showNotification()">
+        <img src="/assets/notifi.png" alt="Notification Image" width="30px" height="30px">
+      </button>
+      <button class="notification-button" (click)="toggleNotesVisibility()">
+        <img src="/assets/historique.png" alt="Notification Image" width="30px" height="30px">
+      </button>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="isNoteVisible" class="notes-container slide-in-right ">
+  <!-- Bouton pour cacher les notes -->
+  <button class="hide-notes-button" (click)="hideNotes()">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <h3 class="ys">Your scores</h3>
+  <ul class="note-list">
+    <li *ngFor="let note of userNotes | keyvalue">
+      <div class="score">{{ note.key }}</div>
+      <div class="quiz-titles">
+        <p *ngFor="let quizTitle of note.value">{{ quizTitle }}</p>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="userNotes.size === 0" class="empty-notes">
+    <p>You have'nt scores yet</p>
+  </div>
+</div>
+
+
+<app-footer-front></app-footer-front>

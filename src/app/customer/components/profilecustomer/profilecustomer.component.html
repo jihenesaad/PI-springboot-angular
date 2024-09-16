@@ -1,0 +1,41 @@
+<section class="profilesection">
+    <mat-card class="profile-card">
+        
+        <h1>Your Profile Details</h1>
+        <mat-card-content>
+            <div class="bootstrap-wrapper">
+                <div class="container text-center">
+                    <img src="https://www.example.com/default-profile-image.png" alt="" class="profile-image">
+                    <h1 class="mt20">{{ user.name }} {{ user.lastname }}</h1>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-10 offset-md-1"></div>
+                    <table class="table text-center">
+                        <tr>
+                            <td class="label">Username</td>
+                            <td class="value">{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Email</td>
+                            <td class="value">{{ user.email }}</td>
+                        </tr>
+                        <tr *ngIf="user.number">
+                            <td class="label">Phone</td>
+                            <td class="value">{{ user.number }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Role</td>
+                            <td class="value">{{ user.roles && user.roles.length > 0 ? user.roles[0].name : 'N/A' }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Status</td>
+                            <td class="value">{{ user.valid ? 'Active' : 'Inactive' }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </mat-card-content>
+    
+    </mat-card>
+    <li><a href="/customer"><i class="fas fa-users"></i> Back</a></li>

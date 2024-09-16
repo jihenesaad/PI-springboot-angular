@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200%; /* Ajustez la hauteur selon vos besoins */
+}
+
+.mat-card {
+  width: 200%; /* Ajustez la largeur selon vos besoins */
+}
+
+
+
+
+
+
+.mat-column-code {
+  background-color: #ffc107; /* Couleur de fond jaune pour la colonne Code */
+  color: #000; /* Couleur du texte noir */
+}
+
+.mat-column-expirationDate {
+  background-color: #17a2b8; /* Couleur de fond cyan pour la colonne Expiration Date */
+  color: #000; /* Couleur du texte blanc */
+}

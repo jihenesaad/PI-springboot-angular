@@ -1,0 +1,60 @@
+ 
+ 
+ 
+ .mat-elevation-z8 {
+    width: 80%;
+
+    margin: auto;
+
+    border-radius: 8px;
+    overflow: hidden;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0,.1);
+ }
+
+ 
+ 
+ .mat-header-cell {
+    font-weight: bolder;
+    color: #003973;
+    background-color: #f0f0f0;
+    padding: 12px 16px;
+ }
+ 
+
+ .mat-cell{
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+ }
+
+
+ .mat-row:nth-child(even){
+    background-color: #f9f9f9;
+ }
+
+ .spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+ }
+
+ .max-progress-spinner circle {
+    stroke:#003973;
+ }
+ .mat-table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-table {
+    width: 80%; /* Vous pouvez ajuster la largeur selon vos besoins */
+}
+.my-table {
+   width: 80%;
+   margin: 20px auto; /* Marge en haut pour laisser de l'espace sous la navbar */
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+}
+

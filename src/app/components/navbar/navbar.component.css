@@ -1,0 +1,126 @@
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; 
+
+
+    .search-input {
+        width: 80%; /* Ajuste la largeur du champ de saisie */
+        max-width: 400px; /* Définit une largeur maximale pour éviter que le champ ne devienne trop large */
+    
+}
+.search-button {
+    margin-top: 10px;
+
+button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translate(-50%);
+    width: 150px; /* Largeur souhaitée */
+    height: 50px; /* Hauteur souhaitée */
+    font-size: 16px; /* Taille de la police */
+}
+}
+}
+
+.abonnement-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    min-height: 70vh;
+    padding: 20px;
+
+.abonnement-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    border-radius:  10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0,2);
+
+    .abonnement-image {
+        height: 200px;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+    
+        img {
+            width: 100%;
+            height: 150%;
+            object-fit: cover;
+        }
+    }
+
+    .abonnement-details{
+        padding: 20px;
+     .product-name{
+        font-size: 20px;
+        font-weight: bold;
+        color: #108ee9;
+        margin-bottom: 10px;
+     }
+
+     .abonnement-description{margin-bottom: 10px;
+    }
+
+    .abonnement-info{ 
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        .info-row {
+            flex:  0 0 50%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            .info-label {
+                font-weight:10px;
+                margin-right: 5px;
+            }
+
+            .info-value {
+                font-weight: bold;
+
+            }
+        }
+    }
+
+    .actions{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+
+        .update-button{
+            margin-right: 10px;
+        }
+    }
+}
+}
+}
+
+.empty-cart{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    height: 300px;
+
+    span {
+        font-size: 18px;
+        color:#616161;
+        margin-top: 10px;
+    }
+}
+
+
+        
+.container {
+    display: flex;
+    justify-content: center; /* Alignement horizontal au centre */
+    align-items: center; /* Alignement vertical au centre */
+    height: 100vh; /* Hauteur équivalente à la hauteur de la fenêtre */
+  }
+ 
+  
+
+
+

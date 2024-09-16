@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <app-sidebar-back></app-sidebar-back>
+            <div class="layout-page">
+                <app-navbar-back></app-navbar-back>
+                <div class="form-container">
+                    <h2>Add Mental Program</h2>
+                    <form [formGroup]="mentalProgramForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <input type="text" formControlName="category" class="form-control">
+                            <div *ngIf="mentalProgramForm.get('category')?.invalid && (mentalProgramForm.get('category')?.dirty || mentalProgramForm.get('category')?.touched)" class="text-danger">
+                                <!-- Afficher un message d'erreur pour une catégorie invalide -->
+                                Category is required.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <input type="text" formControlName="description" class="form-control">
+                            <div *ngIf="mentalProgramForm.get('description')?.invalid && (mentalProgramForm.get('description')?.dirty || mentalProgramForm.get('description')?.touched)" class="text-danger">
+                                <!-- Afficher un message d'erreur pour une description invalide -->
+                                Description must be between 5 and 100 characters.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration:</label>
+                            <input type="number" formControlName="duration" class="form-control">
+                            <div *ngIf="mentalProgramForm.get('duration')?.invalid && (mentalProgramForm.get('duration')?.dirty || mentalProgramForm.get('duration')?.touched)" class="text-danger">
+                                <!-- Afficher un message d'erreur pour une durée invalide -->
+                                Duration must be a positive number.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pourcentage:</label>
+                            <input type="number" formControlName="pourcentage" class="form-control">
+                            <div *ngIf="mentalProgramForm.get('pourcentage')?.invalid && (mentalProgramForm.get('pourcentage')?.dirty || mentalProgramForm.get('pourcentage')?.touched)" class="text-danger">
+                                <!-- Afficher un message d'erreur pour une durée invalide -->
+                                Pourcentage must be a positive number.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Image:</label>
+                            <input type="file" (change)="onFileSelected($event)" class="form-control">
+                        </div>
+                        <!-- Ajoutez d'autres champs du formulaire au besoin -->
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer-back></app-footer-back>
+</html>

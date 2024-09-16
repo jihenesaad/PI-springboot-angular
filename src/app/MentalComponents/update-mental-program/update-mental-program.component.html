@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <app-sidebar-back></app-sidebar-back>
+            <div class="layout-page">
+                <app-navbar-back></app-navbar-back>
+                <div class="form-container">
+                    <h2>Edit Mental Program</h2>
+                    <form [formGroup]="updateMentalProgramForm" (ngSubmit)="updateMentalProgram()">
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <input type="text" formControlName="category" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <input type="text" formControlName="description" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Duration:</label>
+                            <input type="text" formControlName="duration" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Pourcentage:</label>
+                            <input type="text" formControlName="pourcentage" class="form-control">
+                        </div>
+                        <!-- Ajoutez ici d'autres champs de formulaire si nécessaire -->
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer-back></app-footer-back>
+</html>
+

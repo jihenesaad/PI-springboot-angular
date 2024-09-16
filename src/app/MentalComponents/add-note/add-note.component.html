@@ -1,0 +1,25 @@
+
+  <h2>Notes de l'utilisateur</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Note Value</th>
+        <th>Quiz Titles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of userNotes | keyvalue">
+        <td>{{ note.key }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let quizTitle of note.value">
+              {{ quizTitle }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+

@@ -1,0 +1,264 @@
+.background-video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    filter: brightness(50%);
+  }
+  
+  .container,
+  .cards,
+  .card,
+  .start-button,
+  .category-dropdown {
+    position: relative;
+    z-index: 1;
+  }
+  
+
+  .container {
+    display: flex;
+    justify-content: flex-start; 
+    margin-top: 100px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    width: calc(100% - 550px);
+    scrollbar-width: none; 
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 2px; 
+    
+}
+
+.cards {
+    margin-left: 0; /* Aucun décalage initial */
+    display: flex;
+    flex-wrap: nowrap; /* Empêcher le retour à la ligne */
+    padding: 20px; /* Ajout d'un espace intérieur pour l'espacement */
+}
+
+.card {
+    width: 270px;
+    height: 300px;
+    background-color: transparent;
+    border: 2px solid white; /* Ajout de la bordure blanche */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 20px; /* Espacement entre les cartes */
+}
+
+.card-image {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.card-details {
+    padding: 20px;
+    color: white; 
+    text-align: center;
+}
+
+.description,
+.duration {
+    margin: 0; /* Suppression des marges par défaut */
+}
+
+.description {
+    font-size: 18px;
+}
+
+
+.duration {
+    font-size: 14px;
+    opacity: 0.8; 
+}
+.category-selector{
+    margin-top: 100px;
+    margin-left: 50px;
+
+}
+.category-selector select {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+  }
+  
+  .category-selector select option {
+    background-color: transparent; 
+    color: rgba(0, 0, 0, 0.493);
+  }
+  .category-selector select:hover {
+    background-color: white; /* Fond blanc au survol */
+  color: rgba(0, 0, 0, 0.493); /* Texte transparent au survol */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Assurez-vous que le modal est au-dessus de tout le contenu */
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgba(0, 0, 0, 0.5); /* Rend le fond du modal transparent */
+    border: none; /* Supprime la bordure par défaut */
+    box-shadow: none; /* Supprime l'ombre par défaut */
+  }
+  
+  
+  .modal-content {
+    text-align: center;
+  }
+  
+  .close-button {
+    margin-top: 10px;
+  }
+  .start-button {
+    top: 150px; /* Ajustez cette valeur selon votre préférence */
+    left: 650px; /* Ajustez cette valeur pour positionner le bouton à droite */
+    padding: 10px 20px;
+    background-color: transparent; /* Fond transparent */
+    color: white; /* Texte blanc */
+    border: 2px solid white; /* Bordure blanche */
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Ajout de la transition pour l'effet hover */
+}
+
+.start-button:hover {
+    background-color: white; /* Fond blanc au survol */
+  color: rgba(0, 0, 0, 0.493); /* Texte transparent au survol */
+}
+.timer {
+    font-size: 20px; /* Taille de la police */
+    color: #c80505; /* Couleur du texte */
+    font-weight: bold; /* Police en gras */
+    margin-top: 20px; /* Marge supérieure pour espacement */
+  }
+
+  .modal-body {
+    width: 400px; 
+    height: 400px;
+    margin: auto; 
+  }
+
+  .modal-body svg {
+    margin-top: 50px;
+  }
+  
+  
+  .get-ready-message {
+    font-size: 35px; /* Taille de la police */
+  text-align: center; /* Alignement du texte au centre */
+  margin-top: 90px; /* Marge supérieure pour le positionner verticalement */
+  color: #c80505; /* Couleur du texte */
+  font-weight: bold; /* Police en gras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.362); /* Ombre du texte */
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .blink-animation {
+    animation: blink 2s infinite; /* Définissez la durée de l'animation et l'itération */
+  }
+
+  .progress {
+    background-color: #c80505; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    color: white; /* Couleur du texte */
+    margin-top: auto;
+    margin-left: 700px;
+    margin-bottom: 300px;
+    text-align: center; /* Centrer le texte */
+    text-decoration: none; /* Pas de soulignement */
+    display: inline-block; /* Affichage en ligne */
+    font-size: 16px; /* Taille de police */
+    cursor: pointer; /* Curseur de la souris */
+    border-radius: 20px; /* Bordures arrondies */
+    height: 40px;
+    width: 120px;
+  }
+  
+  .progress:hover {
+    background-color: #c80505d0; /* Couleur de fond au survol */
+  }
+  
+  
+  .progress-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .progress-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip: rect(0, 150px, 150px, 75px);
+    position: absolute;
+  }
+  
+  .progress-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #4CAF50; /* Couleur de remplissage */
+    clip: rect(0, 75px, 150px, 0);
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+ 
+   

@@ -1,0 +1,39 @@
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Pour centrer le contenu horizontalement */
+    margin-top: 50px; /* Pour décaler le contenu vers le bas sous la barre de navigation */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Alignement horizontal au centre */
+    align-items: center; /* Alignement vertical au centre */
+    height: 100vh; /* Hauteur équivalente à la hauteur de la fenêtre */
+  }
+  
+  .form-container {
+    width: 300px; /* Largeur de votre formulaire */
+  }
+  

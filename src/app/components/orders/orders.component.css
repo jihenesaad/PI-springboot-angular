@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+mat-card {
+    width: 100%;
+    max-width: 800px; /* ajustez la largeur maximale selon vos besoins */
+    padding: 20px;
+}
+
+.mat-table {
+    width: 100%;
+}
+
+.mat-header-row, .mat-row {
+    display: flex;
+}
+
+.mat-header-row {
+    font-weight: bold;
+}
+
+.mat-header-cell, .mat-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.mat-header-cell:first-child, .mat-cell:first-child {
+    text-align: left; /* aligner le contenu de la première colonne à gauche */
+}
+
+.mat-cell {
+    border-top: 1px solid #e0e0e0; /* ajouter une bordure supérieure à chaque cellule */
+}
+
+.mat-row:hover {
+    background-color: #f5f5f5; /* couleur de fond lors du survol */
+}
+
+button.mat-raised-button {
+    min-width: 100px; /* ajuster la largeur minimale des boutons */
+    margin: 0; /* réinitialiser la marge */
+}
+.mat-menu-trigger {
+    background-color: blue !important; /* Change la couleur de fond du bouton en bleu */
+    color: white !important; /* Change la couleur du texte en blanc */
+}

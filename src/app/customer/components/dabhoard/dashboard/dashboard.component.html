@@ -1,0 +1,72 @@
+
+ <!-- Favicons -->
+ <link href="/assets/FrontOfficeAssets/img/favicon.png" rel="icon">
+ <link href="/assets/FrontOfficeAssets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+ <!-- Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+ <!-- Vendor CSS Files -->
+ <link href="/assets/FrontOfficeAssets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link href="/assets/FrontOfficeAssets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+ <link href="/assets/FrontOfficeAssets/vendor/aos/aos.css" rel="stylesheet">
+ <link href="/assets/FrontOfficeAssets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+ <link href="/assets/FrontOfficeAssets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+ <!-- Template Main CSS File -->
+ <link href="/assets/FrontOfficeAssets/css/main.css" rel="stylesheet">
+<app-nav-bar-front></app-nav-bar-front>
+
+ <router-outlet></router-outlet>
+
+
+  
+ <div class="abonnement-list">
+
+  <mat-card class="abonnement-card" *ngFor="let abonnement of abonnements">
+     <div class="abonnement-image">
+       <img [src]="abonnement.processedImg" alt="abonnement-image">
+     </div>
+     <div class="abonnement-details">
+       <h2 class="abonnement-name">{{abonnement.name}}</h2>
+       <h2 class="abonnement-description">{{abonnement.decription}}</h2>
+
+       <mat-divider></mat-divider>
+       <div class="abonnement-info">
+         <div class="info-row">
+           <span class="info-label"> Price :</span>
+           <span class="info-value">${{abonnement.price}}</span>
+         </div>
+         
+         <div class="info-row">
+           <span class="info-label"> Category :</span>
+           <span class="info-value">{{abonnement.categoryId}}</span>
+         </div>
+       </div>
+
+       <mat-divider></mat-divider>
+<div class="actions">
+  <button mat-raised-button color="primary" class="update-button" (click)="addToCart(abonnement.id)" >
+    
+  Add To Cart
+  </button>
+
+</div>
+     </div>
+   </mat-card>
+ </div>
+ 
+<form [formGroup]="searchAbonnementForm" class="search-form" (submit)="submitForm()">
+<mat-form-field appearance="outline" class="search-input">
+ <mat-label>Enter keyword to search </mat-label>
+ <input matInput formControlName="title">
+
+ <button mat-button matSuffix color="primary" [disabled]="searchAbonnementForm.invalid">
+ 
+   <mat-icon>search</mat-icon>
+ </button>
+</mat-form-field>
+</form>
+

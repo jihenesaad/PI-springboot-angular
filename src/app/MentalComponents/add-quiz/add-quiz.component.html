@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <app-sidebar-back></app-sidebar-back>
+        <div class="layout-page">
+            <app-navbar-back></app-navbar-back>
+            <div class="addQuiz">
+                <h2>Add Quiz</h2>
+            <div class="form-container">
+                
+                <form [formGroup]="quizForm" (ngSubmit)="addQuiz()">
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" formControlName="titleQuiz" class="form-control">
+                        <div class="text-danger">{{ getTitleErrorMessage() }}</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Topic:</label>
+                        <input type="text" formControlName="topicQuiz" class="form-control">
+                        <div class="text-danger">{{ getTopicErrorMessage() }}</div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add</button>
+                </form>
+                <div class="gotoshow">
+                    <button type="button" class="btn btn-primary" [routerLink]="['/show-quiz']">
+                        <mat-icon>add</mat-icon> 
+                        <span class="button-text">Add Questions</span>
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer-back></app-footer-back>
+
+</html>
